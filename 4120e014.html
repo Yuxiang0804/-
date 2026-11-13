@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我(4120E014 周寓翔)</title>
+    <!-- 引入 Google Fonts Noto Sans TC (權重 100) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           第一部分：112學年度 HTML5 期中考解答標準 CSS
+           （完全依照解答規範撰寫，無使用 class 與 id 選擇器於目標區塊）
+           ========================================== */
+        body {
+            margin: 8px;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: serif, "Times New Roman", "PMingLiU", "新細明體";
+        }
+
+        /* 20, 21, 24. 版面寬度 80% 並左右置中 */
+        header, main, footer {
+            width: 80%;
+            margin: 0 10%;
+        }
+
+        /* 10, 11. 導覽列文字置中、背景顏色為 cadetblue */
+        nav {
+            text-align: center;
+            background-color: cadetblue;
+        }
+
+        /* 9. 消除 ul 預設左填充 */
+        nav ul {
+            padding-left: 0pt;
+            margin: 0;
+        }
+
+        /* 1, 2, 3, 4, 7, 23. 導覽列按鈕樣式與間距 */
+        nav li {
+            border-radius: 5px;
+            display: inline-block;
+            background-color: black;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        /* 8. 滑鼠移至按鈕變色 */
+        nav li:hover {
+            background-color: blue;
+        }
+
+        /* 2, 5, 6. 導覽列超連結樣式 */
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            font-family: sans-serif;
+            font-size: 16px;
+        }
+
+        /* 22. 「關於我」主標題樣式 */
+        h1 {
+            margin-left: 10%;
+            font-size: 42px;
+        }
+
+        /* 25. 姓名使用藍色字 */
+        span:last-of-type {
+            color: blue;
+        }
+
+        /* 12, 20. 必修課與選修課清單並排且頂部對齊 */
+        section {
+            display: inline-block;
+            vertical-align: top;
+            width: 48%;
+        }
+
+        /* 20. 第二個清單左外距 4%，使總寬度為 48% + 4% + 48% = 100% */
+        section:last-of-type {
+            margin-left: 4%;
+        }
+
+        /* 13, 14, 15, 17. 修課清單標題區塊樣式 */
+        h2 {
+            background-color: cadetblue;
+            color: white;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border: 1pt solid cornflowerblue;
+            border-bottom-width: 0px;
+            margin-bottom: 0px;
+            font-size: 24px;
+            overflow: hidden;
+        }
+
+        /* 15, 16. 斜標小圖示（compulsory.png / elective.png）絕對定位於左上角 */
+        h2 img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+        }
+
+        /* 17, 18, 20. 修課清單項目樣式 */
+        section ul {
+            border: 1pt solid cornflowerblue;
+            border-top-width: 0px;
+            margin-top: 0px;
+            font-family: 'Noto Sans TC', Helvetica, Arial, sans-serif;
+            font-weight: 100;
+            font-size: 16px;
+            line-height: 22px;
+            height: 5em;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        /* 20. 頁腳靠右對齊 */
+        footer {
+            text-align: right;
+            margin-top: 8px;
+        }
+
+        /* 19. 偽元素加入版權宣告符號 © */
+        footer small::before {
+            content: "\00a9";
+        }
+
+        /* ==========================================
+           第二部分：輔助學習工具（可折疊原始碼對照區，不影響上方排版）
+           ========================================== */
+        .helper-panel {
+            width: 80%;
+            margin: 60px 10% 30px 10%;
+            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            border-top: 2px dashed #cbd5e1;
+            padding-top: 24px;
+        }
+
+        .helper-panel details {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .helper-panel summary {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .helper-panel summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .helper-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-weight: 500;
+        }
+
+        .code-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .code-grid {
+                grid-template-columns: 1fr;
+            }
+            section {
+                width: 100%;
+                display: block;
+            }
+            section:last-of-type {
+                margin-left: 0;
+                margin-top: 16px;
+            }
+        }
+
+        .code-card {
+            background: #1e293b;
+            color: #f8fafc;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .code-header {
+            background: #0f172a;
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        .copy-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 5px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #2563eb;
+        }
+
+        .code-card pre {
+            margin: 0;
+            padding: 14px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 12.5px;
+            line-height: 1.5;
+            overflow-x: auto;
+            max-height: 360px;
+            color: #e2e8f0;
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: sans-serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            z-index: 9999;
+        }
+
+        .toast-msg.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         目標網頁主體（完全符合期中考解答 HTML 結構）
+         ========================================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#aboutme">關於我</a></li>
+                <li><a href="mailto:4120E014@gmail.com">聯絡我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 id="aboutme">關於我</h1>
+        <p>學號：<span>4120E014</span> 姓名：<span>周寓翔</span></p>
+        <section>
+            <h2>
+                <!-- 內嵌 SVG Data-URI 模擬 compulsory.png 紅色印章斜框「必修」圖示 -->
+                <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg transform='rotate(-38 45 45)'%3E%3Crect x='6' y='26' width='78' height='32' rx='6' ry='6' fill='none' stroke='%23a62626' stroke-width='3.5' opacity='0.88'/%3E%3Crect x='10' y='30' width='70' height='24' rx='3' ry='3' fill='none' stroke='%23a62626' stroke-width='1.2' opacity='0.88'/%3E%3Ctext x='45' y='48' font-family='sans-serif' font-size='18' font-weight='700' fill='%23a62626' text-anchor='middle' letter-spacing='4' opacity='0.92'%3E%E5%BF%85%E4%BF%AE%3C/text%3E%3C/g%3E%3C/svg%3E" alt="必修課">
+                必修課
+            </h2>
+            <ul>
+                <li>HTML5程式設計</li>
+                <li>工程數學</li>
+                <li>程式設計(二)</li>
+            </ul>
+        </section><!--
+        --><section>
+            <h2>
+                <!-- 內嵌 SVG Data-URI 模擬 elective.png 綠色印章斜框「選修」圖示 -->
+                <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg transform='rotate(-38 45 45)'%3E%3Crect x='6' y='26' width='78' height='32' rx='6' ry='6' fill='none' stroke='%232d7a36' stroke-width='3.5' opacity='0.88'/%3E%3Crect x='10' y='30' width='70' height='24' rx='3' ry='3' fill='none' stroke='%232d7a36' stroke-width='1.2' opacity='0.88'/%3E%3Ctext x='45' y='48' font-family='sans-serif' font-size='18' font-weight='700' fill='%232d7a36' text-anchor='middle' letter-spacing='4' opacity='0.92'%3E%E9%81%B8%E4%BF%AE%3C/text%3E%3C/g%3E%3C/svg%3E" alt="選修課">
+                選修課
+            </h2>
+            <ul>
+                <li>人工智慧概論</li>
+                <li>物聯網於綠能之應用</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <small>版權所有：4120E014 周寓翔</small>
+    </footer>
+
+    <!-- ==========================================
+         可折疊：檢視完整 HTML / CSS 原始碼面板
+         ========================================== -->
+    <aside class="helper-panel">
+        <details>
+            <summary>
+                <span>📄 檢視完整 HTML / CSS 解答原始碼（點擊展開複製）</span>
+                <span class="helper-badge">112學年度期中考標準解答</span>
+            </summary>
+            <div class="code-grid">
+                <!-- HTML 原始碼卡片 -->
+                <div class="code-card">
+                    <div class="code-header">
+                        <span>index.html</span>
+                        <button type="button" class="copy-btn" onclick="copySourceCode('html-source', 'HTML 原始碼')">複製 HTML</button>
+                    </div>
+                    <pre id="html-source">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-Hant-TW"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;關於我(4120E014 周寓翔)&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100&amp;display=swap" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#aboutme"&gt;關於我&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="mailto:4120E014@gmail.com"&gt;聯絡我&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;h1 id="aboutme"&gt;關於我&lt;/h1&gt;
+    &lt;p&gt;學號：&lt;span&gt;4120E014&lt;/span&gt; 姓名：&lt;span&gt;周寓翔&lt;/span&gt;&lt;/p&gt;
+    &lt;section&gt;
+      &lt;h2&gt;
+        &lt;img src="compulsory.png" alt="必修課"&gt;
+        必修課
+      &lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;HTML5程式設計&lt;/li&gt;
+        &lt;li&gt;工程數學&lt;/li&gt;
+        &lt;li&gt;程式設計(二)&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;&lt;!--
+    --&gt;&lt;section&gt;
+      &lt;h2&gt;
+        &lt;img src="elective.png" alt="選修課"&gt;
+        選修課
+      &lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;人工智慧概論&lt;/li&gt;
+        &lt;li&gt;物聯網於綠能之應用&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    &lt;small&gt;版權所有：4120E014 周寓翔&lt;/small&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                </div>
+
+                <!-- CSS 原始碼卡片 -->
+                <div class="code-card">
+                    <div class="code-header">
+                        <span>style.css</span>
+                        <button type="button" class="copy-btn" onclick="copySourceCode('css-source', 'CSS 原始碼')">複製 CSS</button>
+                    </div>
+                    <pre id="css-source">nav li {
+    border-radius: 5px;
+    display: inline-block;
+    background-color: black;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+nav li:hover {
+    background-color: blue;
+}
+
+nav ul {
+    padding-left: 0pt;
+}
+
+nav {
+    text-align: center;
+    background-color: cadetblue;
+}
+
+section {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+}
+
+section:last-of-type {
+    margin-left: 4%;
+}
+
+h2 {
+    background-color: cadetblue;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 1pt solid cornflowerblue;
+    border-bottom-width: 0px;
+    margin-bottom: 0px;
+}
+
+img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+section ul {
+    border: 1pt solid cornflowerblue;
+    border-top-width: 0px;
+    margin-top: 0px;
+    font-family: 'Noto Sans TC', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 22px;
+    height: 5em;
+}
+
+footer small::before {
+    content: "\00a9";
+}
+
+header, main, footer {
+    width: 80%;
+    margin: 0 10%;
+}
+
+footer {
+    text-align: right;
+}
+
+h1 {
+    margin-left: 10%;
+    font-size: 42px;
+}
+
+span:last-of-type {
+    color: blue;
+}</pre>
+                </div>
+            </div>
+        </details>
+    </aside>
+
+    <!-- 自訂提示訊息框（取代 alert） -->
+    <div id="toast" class="toast-msg">已複製到剪貼簿！</div>
+
+    <script>
+        /**
+         * 複製原始碼至剪貼簿並顯示提示訊息
+         * @param {string} elementId - 要複製的 pre 元素 ID
+         * @param {string} label - 顯示於提示框的名稱
+         */
+        function copySourceCode(elementId, label) {
+            try {
+                const codeElement = document.getElementById(elementId);
+                if (!codeElement) return;
+
+                const textArea = document.createElement('textarea');
+                textArea.value = codeElement.textContent;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-9999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                showToast(`已成功複製 ${label}！`);
+            } catch (err) {
+                showToast('複製失敗，請手動選取複製。');
+            }
+        }
+
+        /**
+         * 顯示右下角提示訊息
+         * @param {string} message - 提示文字
+         */
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2200);
+        }
+    </script>
+</body>
+</html>
